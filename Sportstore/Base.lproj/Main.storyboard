@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14F19a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sportstore" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHd-ep-ZrE">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kdH-G9-hsv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="brI-IF-5W1">
+                                <rect key="frame" x="0.0" y="20" width="600" height="530"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="84" id="PX7-qk-wX2" customClass="ProductTableCell" customModule="Sportstore">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="84"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PX7-qk-wX2" id="6GJ-Ee-wbg">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1X-Vl-gGT" userLabel="Name Label">
+                                                    <rect key="frame" x="8" y="8" width="405" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="W9T-CO-SY4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eqb-8M-Kdn" userLabel="Text Field">
+                                                    <rect key="frame" x="523" y="7" width="69" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="69" id="556-VT-bYm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="stockLevelDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="2OJ-2R-JzH"/>
+                                                    </connections>
+                                                </textField>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-aq-EWD">
+                                                    <rect key="frame" x="421" y="8" width="94" height="29"/>
+                                                    <connections>
+                                                        <action selector="stockLevelDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Tpv-t4-nMC"/>
+                                                    </connections>
+                                                </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8w-i4-GhY" userLabel="Description Label">
+                                                    <rect key="frame" x="8" y="54" width="584" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eqb-8M-Kdn" firstAttribute="leading" secondItem="VaV-aq-EWD" secondAttribute="trailing" constant="8" id="Fjg-9z-zhJ"/>
+                                                <constraint firstAttribute="topMargin" secondItem="VaV-aq-EWD" secondAttribute="top" id="LII-9d-Inq"/>
+                                                <constraint firstAttribute="topMargin" secondItem="B1X-Vl-gGT" secondAttribute="top" id="Lgf-Lq-0F9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="M8w-i4-GhY" secondAttribute="bottom" id="O9R-xi-J56"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="M8w-i4-GhY" secondAttribute="trailing" id="S8v-A0-Jil"/>
+                                                <constraint firstItem="eqb-8M-Kdn" firstAttribute="top" secondItem="6GJ-Ee-wbg" secondAttribute="topMargin" constant="-1" id="cXF-0T-Uio"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="M8w-i4-GhY" secondAttribute="leading" id="kbN-bv-oZg"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="B1X-Vl-gGT" secondAttribute="leading" id="mCr-wF-FUw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eqb-8M-Kdn" secondAttribute="trailing" id="nTT-nO-AZ2"/>
+                                                <constraint firstItem="VaV-aq-EWD" firstAttribute="leading" secondItem="B1X-Vl-gGT" secondAttribute="trailing" constant="8" id="oa0-mx-yNE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="M8w-i4-GhY" id="4qN-tZ-ghb"/>
+                                            <outlet property="nameLabel" destination="B1X-Vl-gGT" id="Qk4-HZ-ZJi"/>
+                                            <outlet property="stockField" destination="eqb-8M-Kdn" id="38E-km-8DR"/>
+                                            <outlet property="stockStepper" destination="VaV-aq-EWD" id="Kz6-Rg-UOb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="4Hw-0m-8z4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="brI-IF-5W1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2qd-Wb-w74"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mHd-ep-ZrE" secondAttribute="trailing" constant="-20" id="8Em-eF-SEU"/>
+                            <constraint firstItem="mHd-ep-ZrE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="HtM-eB-qHJ"/>
+                            <constraint firstItem="brI-IF-5W1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="S8m-xt-71C"/>
+                            <constraint firstItem="mHd-ep-ZrE" firstAttribute="top" secondItem="brI-IF-5W1" secondAttribute="bottom" id="gIa-WO-dKq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mHd-ep-ZrE" secondAttribute="bottom" id="rex-BX-dyP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="brI-IF-5W1" secondAttribute="trailing" constant="-20" id="tOi-oo-sTu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="brI-IF-5W1" id="bz4-Nj-Uq0"/>
+                        <outlet property="totalStockLabel" destination="mHd-ep-ZrE" id="x3z-qi-Ou6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="235" y="479"/>
+        </scene>
+    </scenes>
+</document>
