@@ -12,19 +12,30 @@ class Logger<T where T:NSObject, T:NSCopying> {
     
     var dataItems:[T] = [];
     var callback:(T) -> Void;
+    var arrayQ = dispatch_queue_create("arrayQ", DISPATCH_QUEUE_CONCURRENT);
+    
     
     init(callback:T -> Void) {
         self.callback = callback;
     }
 
+//    func logItem(item:T) {
+//        dataItems.append(item.copy() as! T);
+//        callback(item);
+//    }
+    
     func logItem(item:T) {
-        dataItems.append(item.copy() as! T);
-        callback(item);
+        dispatch_barrier_async(arrayQ, {() in
+            self.dataItems.append(item.copy() as! T);
+            self.callback(item);
+        });
     }
     
     func processItems(callback:T -> Void) {
-        for item in dataItems {
-            callback(item);
-        }
+        dispatch_sync(arrayQ, {() in
+            for item in self.dataItems {
+                callback(item);
+            }
+        });
     }
 }
