@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let logger = Logger<Product>(callback: handler);
+    //let logger = Logger<Product>(callback: handler);
     //last member of tuble is stock level
     var products = [
         Product(name:"Kayak", description:"A boat for one person",
@@ -106,7 +106,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                         }
                         cell.stockStepper.value = Double(product.stockLevel);
                         cell.stockField.text = String(product.stockLevel);
-                        logger.logItem(product);
+                        productLogger.logItem(product);
                     }
                     break;
                 }

@@ -16,6 +16,9 @@ class Utils {
     class func currencyStringFromNumber(number:Double) -> String {
         let formatter = NSNumberFormatter();
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle;
+        //let blightyLocale = NSLocale(localeIdentifier: "en_GB");
+        //formatter.locale = blightyLocale;
+        print(NSLocale.currentLocale().localeIdentifier);
         return formatter.stringFromNumber(number) ?? "";
     }
 

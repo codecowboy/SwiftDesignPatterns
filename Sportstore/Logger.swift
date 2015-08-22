@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Logger<T where T:NSObject, T:NSCopying> {
+let productLogger = Logger<Product>(callback: {p in
+        print("Change: \(p.name) \(p.stockLevel) items in stock");
+    });
+
+final class Logger<T where T:NSObject, T:NSCopying> {
     
     var dataItems:[T] = [];
     var callback:(T) -> Void;
@@ -16,7 +20,7 @@ class Logger<T where T:NSObject, T:NSCopying> {
     var callbackQ = dispatch_queue_create("callbackQ", DISPATCH_QUEUE_SERIAL);
     
     
-    init(callback:T -> Void, protect:Bool = true) {
+    private init(callback:T -> Void, protect:Bool = true) {
         self.callback = callback;
         if (protect) {
             self.callback = {(item:T) in
